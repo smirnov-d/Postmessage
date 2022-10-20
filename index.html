@@ -10,13 +10,17 @@
 </head>
 <body>
 <button>Send on top</button>
-<button id="test">Send on top</button>
+<button id="test">Call parent method</button>
+<button id="test">Call parent console.log</button>
 <script type="text/javascript">
   document.querySelector('button').onclick = function () {
     parent.postMessage("message to be sent", "*")
   };
   document.querySelector('#test').onclick = function () {
     parent.testmethod("message to be sent")
+  };
+  document.querySelector('#test').onclick = function () {
+    window.parent.console.log('output will be in parent console');
   };
 </script>
 </body>
